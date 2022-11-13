@@ -1,0 +1,79 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import loadingImg from "../assets/loading.gif";
+
+async function getMovieDetails(id) {
+  let res = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=d751f12db3431eb3928b112310ae9364`
+  );
+  console.log(res.data);
+  return res.data;
+}
+
+function MoviePage({ movie }) {
+  const { id } = useParams();
+  const [movieDetails, setMovieDetails] = useState("Loading");
+
+  useEffect(() => {
+    getMovieDetails(id)
+      .then((res) => setMovieDetails(res))
+      .catch((err) => console.log(err));
+  }, []);
+
+  if (movieDetails === "Loading") {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-900">
+        <img
+          src={loadingImg}
+          alt="Loading"
+          style={{ height: "200px", width: "200px" }}
+        />
+      </div>
+    );
+  } else
+    return (
+      <div className="bg-gray-600  min-h-[100vh] text-white  ">
+        <img
+          src={
+            "https://image.tmdb.org/t/p/original/" + movieDetails.backdrop_path
+          }
+          alt={movieDetails.backdrop}
+          className="w-screen aspect-video h-96 "
+        />
+        <div className="flex items-start justify-start md:flex-row md:ml-[50px]">
+          {/* {console.log(movieDetails)} */}
+          <div className="flex flex-1 justify-center max-w-[min(400px,90%)] sm:max-w-sm sm:mx-5 md:mx-5  md:h-[576px] z-10">
+            <img
+              src={
+                "https://image.tmdb.org/t/p/original/" +
+                movieDetails.poster_path
+              }
+              alt={movieDetails.title}
+              className="rounded-xl border-white border-2 my-4 sm:max-w-sm"
+            />
+          </div>
+          <div className="text-start   m-10 flex flex-1 flex-col z-10">
+            <h1 className="z-10  my-4 "><span className="text-red-800 font-bold">Name : </span> {movieDetails.title}</h1>
+            <p className=" z-10  my-4"><span className="text-red-800 font-bold">Overview : </span>
+              {movieDetails.overview}
+            </p>
+            <p className="z-10 my-4">
+              <span className="text-red-800 font-bold">Rate : </span>
+              {movieDetails.vote_average}
+            </p>
+            <p className="z-10 my-4">
+            <span className="text-red-800 font-bold">Date : </span>
+              {movieDetails.release_date}
+            </p>
+            <p className="z-10 my-4">
+            <span className="text-red-800 font-bold">Language : </span>
+              {movieDetails.original_language}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+}
+
+export default MoviePage;
