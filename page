@@ -1,4 +1,0 @@
-bg-[#E21E2D] md:flex-row md:space-x-8 
-                          md:mt-0 md:text-sm md:font-medium md:border-0
-                        md:bg-white dark:bg-gray-800
-                        md:dark:bg-gray-900 dark:border-gray-700
