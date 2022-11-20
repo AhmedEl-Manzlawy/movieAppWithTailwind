@@ -2,30 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  // let APIKey ="&api_key=d751f12db3431eb3928b112310ae9364";
-  // let baseUrl ="https://api.themoviedb.org/3";
-  // let url = baseUrl+""+APIKey
-  // let movieArr =['Popular','Theatres','Kids','Drama','Comedy'];
 
 
-  // const getDataMovie = (movieType)=>{
-    
-  //   if(movieType ==='Popular'){
-  //     url =baseUrl+"/discover/movie?sort_by=popularity.desc"+APIKey;
-  //   }
-  //   if(movieType ==='Theatres'){
-  //     url = baseUrl+"/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22"+APIKey
-  //   }
-  //   if(movieType === 'Kids'){
-  //     url = baseUrl+"/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc"+APIKey
-  //   }
-  //   if(movieType === 'Drama'){
-  //     url = baseUrl+"/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10"+APIKey
-  //   }
-  //   if(movieType === 'Comedy'){
-  //     url = baseUrl+"/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc"+APIKey
-  //   }
-  // }
+
 
   return (
 
@@ -137,19 +116,13 @@ const Navbar = () => {
               />
             </div>
             {/* items */}
-            {/* <ul className="flex flex-col p-4 mt-4 border rounded-lg font-iti  text-black  md:flex-row md:space-x-8 md:mt-0 md:text-xl md:font-bold md:border-0 md:bg-[#E21E2D] dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              {
-                movieArr.map((value)=>{
-                  return(
-                    <li>
-                      <button to="#" name={value} onClick={(e)=>{
-                        getDataMovie(e.target.name)
-                      }} >{value}</button>
-                    </li>
-                  )
-                })
-              }
-            </ul> */}
+            <div className="flex flex-col p-4 mt-4 border rounded-lg font-iti  text-black  md:flex-row md:space-x-8 md:mt-0 md:text-xl md:font-bold md:border-0 md:bg-[#E21E2D] dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <Link to='/'>Popular</Link>
+              <Link to='/theatres' >Theatres</Link>
+              <Link to='/kids'>Kids</Link>
+              <Link to='/drama' >Drama</Link>
+              <Link to='comedy' >Comedy</Link>
+            </div>
           </div>
         </div>
       </nav>

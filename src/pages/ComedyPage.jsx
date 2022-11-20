@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import loadingImg from "../../assets/loading.gif";
-import MovieCard from "./MovieCard";
+import loadingImg from '../assets/loading.gif';
+import MovieCard from "../components/Movie/MovieCard";
 
 async function getMovie(pageNo) {
   const res = await axios.get(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=d751f12db3431eb3928b112310ae9364&page=${pageNo}`
+    `https://api.themoviedb.org/3/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc&api_key=d751f12db3431eb3928b112310ae9364&page=${pageNo}`
   );
   console.log(res.data.results);
   return res.data.results;
