@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import loadingImg from '../assets/loading.gif';
+import { NavLink } from "react-router-dom";
+import loadingImg from "../assets/loading.gif";
 import MovieCard from "../components/Movie/MovieCard";
 
 async function getMovie(pageNo) {
@@ -12,11 +13,8 @@ async function getMovie(pageNo) {
 }
 
 const Movie = () => {
-  
   const [movie, setMovie] = useState("Loading");
   const [pageNo, setPagNo] = useState(1);
-
-  
 
   useEffect(() => {
     getMovie(pageNo)
@@ -37,7 +35,38 @@ const Movie = () => {
   else
     return (
       <div className="bg-[#000] min-h-screen py-5 flex flex-col justify-center items-center font-iti ">
-       
+        <div className="flex flex-col p-4 mt-4 border border-black sm:flex-col md:text-black xs:text-black rounded-lg font-iti md:flex-row md:space-x-8 md:mt-0 md:text-xl md:font-bold md:border-0">
+          <NavLink
+            to="/"
+            className="border rounded-xl shadow-md px-3  my-1 bg-[#E21E2D] sm:bd-[#E21D2E] xs:bg-[#E21D2E]"
+          >
+            Popular
+          </NavLink>
+          <NavLink
+            to="/theatres"
+            className="border rounded-xl shadow-md px-3 my-1  bg-[#E21E2D] sm:bd-[#E21D2E] xs:bg-[#E21D2E]"
+          >
+            Theatres
+          </NavLink>
+          <NavLink
+            to="/kids"
+            className="border rounded-xl shadow-md px-3 my-1  bg-[#E21E2D] sm:bd-[#E21D2E] xs:bg-[#E21D2E]"
+          >
+            Kids
+          </NavLink>
+          <NavLink
+            to="/drama"
+            className="border rounded-xl shadow-md px-3 my-1  bg-[#E21E2D] sm:bd-[#E21D2E] xs:bg-[#E21D2E]"
+          >
+            Drama
+          </NavLink>
+          <NavLink
+            to="comedy"
+            className="border rounded-xl shadow-md px-3 my-1  bg-[#E21E2D] sm:bd-[#E21D2E] xs:bg-[#E21D2E]"
+          >
+            Comedy
+          </NavLink>
+        </div>
         <div className="w-[250px] mt-5 pb-1 font-bold flex justify-center items-center ">
           <button
             className="bg-[#E21E2D] rounded-full px-4 ml-2 mx-2 w-36"

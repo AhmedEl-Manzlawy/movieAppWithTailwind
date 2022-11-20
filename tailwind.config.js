@@ -12,6 +12,9 @@ module.exports = {
         'oregano' :['Oregano', 'cursive'],
         'aug':['Aguafina Script', 'cursive'],
         'iti':[ 'Courgette', 'cursive']
+      },
+      screens:{
+        'xs':'320px'
       }
     },
   },
