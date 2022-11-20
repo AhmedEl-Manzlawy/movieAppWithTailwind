@@ -38,7 +38,7 @@ function MoviePage({ movie }) {
 
   if (movieDetails === "Loading") {
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-900">
+      <div className="flex items-center justify-center h-screen bg-black">
         <img
           src={loadingImg}
           alt="Loading"
@@ -48,7 +48,7 @@ function MoviePage({ movie }) {
     );
   } else
     return (
-      <div className="bg-gray-800  min-h-[100vh] text-white text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-6xl font-bold">
+      <div className="bg-[#000] min-h-[100vh] text-white text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-6xl font-bold font-iti">
         <img
           src={
             "https://image.tmdb.org/t/p/original/" + movieDetails.backdrop_path
@@ -71,18 +71,18 @@ function MoviePage({ movie }) {
 
         {/* Clips And Trailers */}
 
-        <div className=" mt-5 ml-20 mr-20  md:mt-10 text-xl md:text-2xl lg:text-3xl ">
+        <div className=" mt-5 ml-5 mr-5  md:mt-10 text-xl md:text-2xl lg:text-3xl ">
           <div className="flex flex-col justify-center  items-center my-20  mt-5 md:mt-10 text-lg md:text-xl lg:text-2xl">
             <h1 className="text-black font-bold mb-10 text-4xl">Details</h1>
             <div>
-              <span className=" text-red-600 font-bold mx-5  ">
+              <span className=" text-[#E21E2D] font-bold mx-5  ">
                 Release Date :-
               </span>
               <span className=" font-normal">{movieDetails.release_date}</span>
             </div>
 
             <div>
-              <span className=" text-red-600 font-bold mx-5 ">Duration :-</span>
+              <span className=" text-[#E21E2D] font-bold mx-5 ">Duration :-</span>
               <span className=" font-normal">
                 {parseInt(movieDetails.runtime / 60)}:
                 {movieDetails.runtime % 60} hr
@@ -90,7 +90,7 @@ function MoviePage({ movie }) {
             </div>
 
             <div>
-              <span className=" text-red-600 font-bold mx-5 ">Rating :-</span>
+              <span className=" text-[#E21E2D] font-bold mx-5 ">Rating :-</span>
               <span className=" font-normal">{movieDetails.vote_average}</span>
             </div>
           </div>
@@ -126,7 +126,7 @@ function MoviePage({ movie }) {
           </div>
           {/* overview */}
           <div className="pb-20">
-            <div className="mt-5 md:mt-10 text-red-700">OverView :- </div>
+            <div className="mt-5 md:mt-10 text-[#E21E2D]">OverView :- </div>
             <div className="mt-5 md:mt-10 font-normal text-lg md:text-xl lg:text-2xl">
               {movieDetails.overview}
             </div>

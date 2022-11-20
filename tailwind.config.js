@@ -2,7 +2,18 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        'manzo-yellow':'#ECD06F',
+        'm-red':'#D14836',
+        'm-lightblue':'#49c5b6'
+      },
+      fontFamily:{
+        'oregano' :['Oregano', 'cursive'],
+        'aug':['Aguafina Script', 'cursive'],
+        'iti':[ 'Courgette', 'cursive']
+      }
+    },
   },
   plugins: [require("tailwind-scrollbar-hide")],
 }
